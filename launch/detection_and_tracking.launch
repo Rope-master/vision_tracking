@@ -1,0 +1,15 @@
+<launch> 
+    <node name="detection_and_tracking" pkg="vision_perception" type="detection_and_tracking" output="screen" >
+        <param name="config_file" type="string" value="$(find vision_perception)/launch/config.yml" />
+        <!--ssd-->
+        <param name="ssd_model_file" type="string" value="$(find vision_perception)/models/SSD/tianjin/deploy_300x300.prototxt" />
+        <param name="ssd_weights_file" type="string" value="$(find vision_perception)/models/SSD/tianjin/VGG_tianjin_selected_SSD_300x300_iter_120000.caffemodel" />
+        <param name="ssd_labels_file" type="string" value="$(find vision_perception)/models/SSD/tianjin/labelmap_tianjin.prototxt" />
+        <param name="ssd_result_file" type="string" value="$(find vision_perception)/ssd_result"/>
+        <!--yolo-->
+        <param name="yolo_model_file" type="string" value="$(find vision_perception)/models/YOLO/tianjin/yolov3-tianjin.cfg" />
+        <param name="yolo_weights_file" type="string" value="$(find vision_perception)/models/YOLO/tianjin/yolov3-tianjin_final.weights" />
+        <param name="yolo_labels_file" type="string" value="$(find vision_perception)/models/YOLO/ttianjin/tianjin.names" />
+        <param name="yolo_result_file" type="string" value="$(find vision_perception)/yolo_result"/>
+    </node>
+</launch>
